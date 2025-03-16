@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poker Pre-Flop Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="light">
+    <div class="container">
+        <button class="theme-toggle" onclick="toggleTheme()">Смени тема</button>
+        <h1>Poker Pre-Flop Assistant</h1>
+        
+        <div class="player-count-container">
+            <select id="playerCountSelect">
+                <option value="2">2 играчи</option>
+                <option value="3">3 играчи</option>
+                <option value="4">4 играчи</option>
+                <option value="5">5 играчи</option>
+                <option value="6">6 играчи</option>
+                <option value="7">7 играчи</option>
+                <option value="8">8 играчи</option>
+                <option value="9">9 играчи</option>
+                <option value="10" selected>10 играчи</option>
+            </select>
+        </div>
+        
+        <!-- Търсачка за ръка горе над всичко -->
+        <div class="hand-search-container">
+            <div class="input-group">
+                <label for="handInput">Ръка:</label>
+                <input type="text" id="handInput" placeholder="Въведи ръка (напр. ATo, AKs, JJ)">
+            </div>
+            <button id="checkButton">Провери</button>
+        </div>
+        
+        <div id="result" class="result-box">
+            <!-- Резултатите ще се покажат тук -->
+        </div>
+        
+        <div class="main-content">
+            <!-- Лява половина - рейндж таблица -->
+            <div class="range-section">
+                <div class="range-legend">
+                    <div class="legend-item"><span class="color-box blue"></span> UTG позиции (червени)</div>
+                    <div class="legend-item"><span class="color-box yellow"></span> MP позиции (лилави)</div>
+                    <div class="legend-item"><span class="color-box red"></span> CO и D позиции (жълти)</div>
+                    <div class="legend-item"><span class="color-box pink"></span> SB/BB позиции (сини)</div>
+                </div>
+                <div id="rangeTable" class="range-table">
+                    <!-- Таблицата ще бъде генерирана от JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Дясна половина - покер маса -->
+            <div class="table-section">
+                <div id="pokerTable" class="poker-table">
+                    <div class="table-credit">by: s1meonn</div>
+                    <!-- Визуална маса ще бъде генерирана от JavaScript -->
+                </div>
+                
+                <div class="table-controls">
+                    <button id="nextRoundButton">Следващ рунд</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
+        }
+    </script>
+</body>
+</html>
